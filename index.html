@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Siddhartha L M — Portfolio</title>
+  <meta name="description" content="Portfolio of Siddhartha L M — Data Analytics & Cloud (AWS) with Python/SQL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #111832;
+      --muted: #9aa3b2;
+      --text: #e7edf5;
+      --accent: #7c7eff;
+      --accent-2: #56ccf2;
+      --ring: rgba(124,126,255,.45);
+      --grad: radial-gradient(1200px 600px at 80% -10%, rgba(124,126,255,.25), transparent 55%),
+              radial-gradient(900px 500px at -10% 10%, rgba(86,204,242,.25), transparent 50%),
+              linear-gradient(160deg, #0b1020 0%, #0b1127 60%, #0b1020 100%);
+    }
+    html, body{height:100%;}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--grad);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x:hidden;
+    }
+    a{color: var(--accent); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav{
+      max-width: 1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 20px;
+    }
+    .nav .brand{font-weight:800; letter-spacing:.5px;}
+    .nav ul{list-style:none; display:flex; gap:18px; padding:0; margin:0;}
+    .nav a{font-weight:600; color:#dfe6f3; opacity:.9;}
+    .nav a:hover{opacity:1;}
+    /* Sections */
+    section{padding: 80px 20px;}
+    .container{max-width:1100px; margin:0 auto;}
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:30px; align-items:center; min-height: 78vh;}
+    .hero h1{font-size: clamp(32px, 6vw, 56px); line-height:1.1; margin: 0 0 12px;}
+    .subtitle{font-size: clamp(16px, 2.5vw, 20px); color: var(--muted); margin-bottom: 18px;}
+    .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px;}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:600; border:1px solid rgba(255,255,255,.12);}
+    .btn.primary{background: linear-gradient(90deg, var(--accent), var(--accent-2)); color:#0b1020; border:none; box-shadow: 0 8px 24px var(--ring);}
+    .btn.ghost:hover{background: rgba(255,255,255,.06);}
+    .hero-card{background: rgba(17, 24, 50, .65); border:1px solid rgba(255,255,255,.08); padding:22px; border-radius:18px; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
+    .pfp{width: 100%; border-radius:16px; border:1px solid rgba(255,255,255,.1); display:block; aspect-ratio: 4/5; object-fit: cover; box-shadow: 0 12px 40px rgba(0,0,0,.35);}
+    /* Cards grid */
+    .grid{display:grid; gap:18px;}
+    .grid.cols-3{grid-template-columns: repeat(3, 1fr);}
+    .grid.cols-2{grid-template-columns: repeat(2, 1fr);}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding-top:40px;}
+      .grid.cols-3{grid-template-columns: 1fr;}
+      .grid.cols-2{grid-template-columns: 1fr;}
+    }
+    .card{background: rgba(17, 24, 50, .5); border: 1px solid rgba(255,255,255,.08); padding:18px; border-radius:16px;}
+    .card h3{margin:0 0 6px;}
+    .meta{color: var(--muted); font-size: 14px;}
+    .chip{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size: 13px; margin:4px 6px 0 0; color:#cfd7e6;}
+    /* Footer */
+    footer{padding: 36px 20px; border-top:1px solid rgba(255,255,255,.08); color: var(--muted);}
+    /* Section titles */
+    .section-title{font-size: clamp(22px, 4vw, 32px); margin: 0 0 18px;}
+    .section-sub{color: var(--muted); margin-top:-6px; margin-bottom:18px;}
+    /* Reveal animation */
+    [data-reveal]{opacity:0; transform: translateY(18px); transition: all .8s ease;}
+    [data-reveal].visible{opacity:1; transform: translateY(0);}
+    /* Anchor offset */
+    .anchor{position: relative; top: -80px;}
+    /* Contact */
+    .contact-links{display:flex; gap:12px; flex-wrap:wrap;}
+    .contact-item{display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid rgba(255,255,255,.12); border-radius:12px;}
+    .small{font-size: 14px; color: var(--muted);}
+    /* List */
+    .list{margin:0; padding-left: 18px;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">Siddhartha L M</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="container hero">
+      <div data-reveal>
+        <h1>Hi, I'm Siddhartha 👋</h1>
+        <div class="subtitle">B.Tech in Information Science — Data Analytics & Cloud (AWS) • Python & SQL</div>
+        <p class="small">I turn data into decisions and build reliable cloud-backed solutions. Focused on clear insights, tidy SQL, and pragmatic engineering.</p>
+        <div class="btns">
+          <a class="btn primary" href="assets/resume.pdf" download>Download Resume</a>
+          <a class="btn ghost" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div data-reveal class="hero-card">
+        <img class="pfp" src="assets/profile.jpg" alt="Siddhartha L M profile photo">
+        <div class="small" style="margin-top:10px;">Bengaluru, Karnataka, India</div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="section-title">About Me</h2>
+      <p data-reveal>Recent B.Tech graduate in Information Science and Engineering with practical experience in Data Analytics, AWS, and Python/SQL-based solutions. I enjoy solving real problems with clean data models, well-structured dashboards, and simple, reliable code.</p>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">Core tools & technologies I use regularly.</p>
+      <div class="card" data-reveal>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">MS Excel</span>
+          <span class="chip">DBMS</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Git</span>
+          <span class="chip">HTML/CSS</span>
+          <span class="chip">ETL (basics)</span>
+          <span class="chip">Analytical Thinking</span>
+          <span class="chip">Team Collaboration</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid cols-3">
+        <div class="card" data-reveal>
+          <h3>Revive Alert System (YOLOv8)</h3>
+          <div class="meta">Nov 2023 — May 2024 • ML Thesis</div>
+          <p>Real-time safety monitoring and alert system using YOLOv8, achieving ~96% detection accuracy and reducing false positives by ~30% through extensive testing & validation.</p>
+          <div class="small">Keywords: Computer Vision, Real‑time Inference, Model Evaluation</div>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Employee DB & Payroll (SQL)</h3>
+          <div class="meta">Jun 2023 — Jul 2023</div>
+          <p>Designed a robust relational schema and automated payroll workflows, cutting manual errors by ~70% with secure, accurate data management and reporting.</p>
+          <div class="small">Keywords: Schema Design, Stored Procedures, Reporting</div>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Message Encode/Decode (Python)</h3>
+          <div class="meta">Jul 2022 — Aug 2022</div>
+          <p>CLI tool for secure message communication with a custom encryption/decryption routine and straightforward UX.</p>
+          <div class="small">Keywords: CLI, Algorithms, Security (basic)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="grid cols-2">
+        <div class="card" data-reveal>
+          <h3>Virtual Intern — Data Analytics</h3>
+          <div class="meta">Deloitte Australia (Forage) • Apr 2025 — May 2025</div>
+          <ul class="list">
+            <li>Explored business datasets; produced insights with Excel & data viz.</li>
+            <li>Performed data cleaning, model structuring, and client‑ready dashboards.</li>
+            <li>Simulated client communication to deliver concise recommendations.</li>
+          </ul>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Cloud AWS Intern</h3>
+          <div class="meta">Infotrixs • Jul 2023 — Aug 2023</div>
+          <ul class="list">
+            <li>Hosted dynamic sites on Amazon S3 and tuned performance.</li>
+            <li>Deployed a scalable web app on AWS; improved UX/perf by ~21%.</li>
+            <li>Optimized resource usage and costs by ~30% with secure setups.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid cols-2">
+        <div class="card" data-reveal>
+          <h3>B.Tech — Information Science & Engineering</h3>
+          <div class="meta">MVJ College of Engineering, Bengaluru • Jul 2024 • CGPA: 7.9/10</div>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Pre-University (PCME)</h3>
+          <div class="meta">IC Bio Mahesh PU College • Mar 2020 • 61.66%</div>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Secondary Education</h3>
+          <div class="meta">St. Claret School • Mar 2018 • 76.8%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Open to Data/Cloud/Backend roles and internships.</p>
+      <div class="contact-links" data-reveal>
+        <a class="contact-item" href="tel:+919341130488">📞 +91 93411 30488</a>
+        <a class="contact-item" href="mailto:siddharthalm504@gmail.com">✉️ siddharthalm504@gmail.com</a>
+        <a class="contact-item" href="https://www.linkedin.com/in/siddhartha-l-m-677958236/" target="_blank">LinkedIn</a>
+        <a class="contact-item" href="https://github.com/SIDDHARTHALM" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    © <span id="year"></span> Siddhartha L M • Built with HTML/CSS/JS • Theming: dark gradient
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveal = () => {
+      const els = document.querySelectorAll('[data-reveal]');
+      const trigger = window.innerHeight * 0.88;
+      els.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < trigger) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', () => { reveal(); document.getElementById('year').textContent = new Date().getFullYear(); });
+  </script>
+</body>
+</html>
